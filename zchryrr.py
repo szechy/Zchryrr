@@ -73,11 +73,11 @@ def check_command(hashtag, split_command_array, original_object):
 	print hashtag
 	if hashtag == "#SHUTDOWN":
 		if original_object.author.screen_name == "ZacharyOrr":
-			error_handling("Shutting down by request")
-			sys.exit(1)
+			shutitdown()
 			
 	if hashtag == "#PROWL":
 		send_prowl_ping()
+	
 	if hashtag == "#TOR":
 		try:
 			response = urllib2.urlopen(split_command_array[2]) # Some shortened url
@@ -95,18 +95,13 @@ def check_command(hashtag, split_command_array, original_object):
 				error_handling(original_object.author.screen_name + " has attempted to start a torrent.")
 		except:
 			error_handling("Torrenting " + url_destination + " failed")
+			
 	if hashtag == "#STATUS":
-		try:
-			api.update_status(original_object.author.screen_name + " Zchryrr is currently online!")
-		except:
-			error_handling("Running, but failed to send update")
+		get_status(original_object.author.screen_name)
+
 	if hashtag == "#FOLLOW":
 		if original_object.author.screen_name == "ZacharyOrr":
-			try:
-				api.create_friendship(split_command_array[2])
-				print "Following " + split_command_array[2]
-			except:
-				error_handling("Failed to follow user " + split_command_array[2])
+			follow_me(split_command_array[2])
 		else:
 			error_handling(original_object.author.screen_name + " has tried to follow " + split_command_array[2]) 
 
@@ -119,7 +114,25 @@ def check_command(hashtag, split_command_array, original_object):
 def mustache(url, user):
 	mustache_url = "http://mustachify.me/?src=" + url
 	api.update_status("@"+user+" "+mustache_url)
-	
+
+def follow_me(to_follow):
+	try:
+		api.create_friendship(split_command_array[2])
+		print "Following " + split_command_array[2]
+		error_handling("Now following " + split_command_array[2])
+	except:
+		error_handling("Failed to follow user " + split_command_array[2])
+
+def get_status(user):
+	try:
+		api.update_status(user + " Zchryrr is currently online!")
+	except:
+		error_handling("Running, but failed to send update")
+
+def shutitdown():
+	error_handling("Shutting down by request")
+	sys.exit(1)
+
 def send_prowl_ping():
 	p.push("Twitter DM", "DM'd", "Zchryrr was requested to DM you","","","")		
 
