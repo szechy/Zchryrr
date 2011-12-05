@@ -4,7 +4,7 @@
 import tweepy #Should be installed
 import string
 import re
-from functions import *
+import functions
 from vars import *
 import platform
 import sys
