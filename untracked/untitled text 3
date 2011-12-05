@@ -1,1 +1,0 @@
-proc = subprocess.Popen(["ps -af | grep python | grep zchryrr"], stdout=subprocess.PIPE, shell=True)
