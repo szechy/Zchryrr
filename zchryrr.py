@@ -74,10 +74,10 @@ def check_command(hashtag, split_command_array, original_object):
 	print hashtag
 	if hashtag == "#SHUTDOWN":
 		if original_object.author.screen_name == "ZacharyOrr":
-			shutitdown()
+			functions.shutitdown()
 			
 	if hashtag == "#PROWL":
-		send_prowl_ping()
+		functions.send_prowl_ping()
 	
 	if hashtag == "#TOR":
 		try:
@@ -102,13 +102,13 @@ def check_command(hashtag, split_command_array, original_object):
 
 	if hashtag == "#FOLLOW":
 		if original_object.author.screen_name == "ZacharyOrr":
-			follow_me(split_command_array[2])
+			functions.follow_me(split_command_array[2])
 		else:
 			error_handling(original_object.author.screen_name + " has tried to follow " + split_command_array[2]) 
 
 	if hashtag == "#STACHE":
 		try:
-			mustache(split_command_array[2], original_object.author.screen_name)
+			functions.mustache(split_command_array[2], original_object.author.screen_name)
 		except:
 			error_handling("Could not mustache")
 
