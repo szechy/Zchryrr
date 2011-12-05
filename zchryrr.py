@@ -73,10 +73,10 @@ def check_command(hashtag, split_command_array, original_object):
 	print hashtag
 	if hashtag == "#SHUTDOWN":
 		if original_object.author.screen_name == "ZacharyOrr":
-			functions.shutitdown()
+			shutitdown()
 			
 	if hashtag == "#PROWL":
-		functions.send_prowl_ping()
+		send_prowl_ping()
 	
 	if hashtag == "#TOR":
 		try:
@@ -126,7 +126,7 @@ def follow_me(to_follow):
 
 def get_status(user):
 	try:
-		api.update_status(user + " Zchryrr is currently online!")
+		api.update_status("@" + user + " Zchryrr is currently online!")
 	except:
 		error_handling("Running, but failed to send update")
 
