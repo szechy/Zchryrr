@@ -14,7 +14,6 @@ class TestZchryrr(unittest.TestCase):
 	#For testing Zchryrr
 	def setUp(self):
 		zchryrr_test = Zchryrr()
-		last_tweet = zchryrr_test.api.user_timeline()[0]
 	
 	def tearDown(self):
 		zchryrr_test = None
