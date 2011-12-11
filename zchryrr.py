@@ -10,6 +10,7 @@ import sys
 import urllib2
 import threading
 import pyrowl
+import inspect_shell
 
 class Zchryrr:
 	def auth(self, consumer_key, consumer_secret, access_key, access_secret):
