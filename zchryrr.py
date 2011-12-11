@@ -1,5 +1,5 @@
 ### zchryrr.py
-### Version = 1.1.0
+### Version = 1.1.1
 
 import tweepy #Should be installed
 import string
