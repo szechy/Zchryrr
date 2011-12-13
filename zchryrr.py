@@ -12,6 +12,13 @@ import threading
 import pyrowl
 
 class Zchryrr:
+	testaMode = True
+	
+	def toggleTestaMode(self):
+		testaMode = (not testaMode)
+		if(testaMode == True): error_handling("Testa Mode on")
+		else: error_handling("Testa Mode off")
+		
 	def auth(self, consumer_key, consumer_secret, access_key, access_secret):
 		auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 		auth.set_access_token(access_key, access_secret)
@@ -189,6 +196,9 @@ def check_command(hashtag, split_command_array, original_object):
 				zchryrr.delete_duplicate(invalid_sudoer_message)
 				zchryrr.api.update_status(invalid_sudoer_message)
 
+	if(hashtag == "#TESTA" and original_object.author.screen_name in sudoers):
+		zchryrr.toggleTestaMode()
+
 	if hashtag == "#PROWL":
 		zchryrr.send_prowl_ping()
 	
@@ -198,17 +208,18 @@ def check_command(hashtag, split_command_array, original_object):
 	if hashtag == "#STATUS":
 		zchryrr.get_status(original_object.author.screen_name)
 
-	if hashtag == "#FOLLOW":
-		if original_object.author.screen_name in sudoers:
-			zchryrr.follow_me(split_command_array[2])
-		else:
-			error_handling(original_object.author.screen_name + " has tried to follow " + split_command_array[2]) 
+	if(hashtag == "#FOLLOW" and original_object.author.screen_name in sudoers):
+		zchryrr.follow_me(split_command_array[2])
+	else:
+		error_handling(original_object.author.screen_name + " has tried to follow " + split_command_array[2]) 
 
 	if hashtag == "#STACHE":
 		try:
 			zchryrr.mustache(split_command_array[2], original_object.author.screen_name)
 		except:
 			error_handling("Could not mustache")
+	if("@Zchryrr" and "?" in original_object.text and zchryrr.testaMode == True):
+		zchryrr.api.update_status("@" + original_object.author.screen_name + " Nope. Chuck Testa.")
 
 def main():
 	zchryrr.auth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)

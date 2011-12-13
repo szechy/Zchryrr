@@ -15,10 +15,12 @@ Zchryrr (interchangeable with @Zchryrr) is a Twitter bot made up in Python to do
 
 * \#FOLLOW [username] - Follow users by request (needs authorization). The username should not have an @ in it
 
+* Testa Mode - Responds to all questions mentioning Zchryrr with a "Nope! Chuck Testa!" Can be toggled with \#TESTA
+
 How Can I Use Zchryrr?
 --------------------------------
 
-To actually use Zchryrr, you'll need to have your own Twitter account (unless you want to run this on your prmiary account, which I do not recommend). I'll trust you can figure out how to make a Twitter account.
+To actually use Zchryrr, you'll need to have your own Twitter account (unless you want to run this on your primary account, which I do not recommend). I'll trust you can figure out how to make a Twitter account.
 
 Next, head over to [dev.twitter.com](http://www.dev.twitter.com/) and sign in to your new Twitter account. Under the drop down of your name, click "My applications"
 
@@ -92,8 +94,6 @@ Upcoming Features List
 * \#CuteCatMeBro - Serves up random cute cat images from Tumblr. Because who couldn't use more cute cats?
 
 * Select memes will be able to be generated on the fly. To start, it'll just be some of my favorites.
-
-* Chuck Testa mode - Will reply "Nope. Chuck Testa" to all questions when he is mentioned
 
 How To Contribuite
 --------------------------------
