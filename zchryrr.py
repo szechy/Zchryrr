@@ -18,22 +18,42 @@ class Zchryrr:
 		self.api = tweepy.API(auth)
 		self.stream = tweepy.Stream(auth, StreamListener(), timeout=None, secure=True)
 
-
-	def delete_duplicate(self, tweet):
+	def delete_duplicate(self, tweet_string):
 		user_tweets = self.api.user_timeline()
 		for tweets in user_tweets:
-			if(tweets.text.split(" ")[1] == tweet.split(" ")[1]):
+			if(tweets.text == tweet_string):
 				zchryrr_test.api.destroy_status(tweets.id)
 				break
 			else:
 				pass
 
+	def tor(self, url, user):
+		try:
+			response = urllib2.urlopen(url) # Some shortened url
+		except:
+			error_handling("Failed to get file")
+		url_destination = response.url
+		try:
+			os.system("cd " + torrent_directory + " && wget " + url_destination)
+			if(original_object.author.screen_name in sudoers):
+				try:
+					error_handling("@" + user + " Mischief Manged >:3")
+			else:
+				try:
+					zchryrr.api.update_status(invalid_sudoer_message)
+				except:
+					zchryrr.delete_duplicate(invalid_sudoer_message)
+					zchryrr.api.update_status(invalid_sudoer_message)
+		except:
+			error_handling("Torrenting " + url_destination + " failed")
 
+	
 	def get_status(self, user):
 		try:
 			self.api.update_status("@" + user + " Zchryrr is currently online!")
 		except:
-			error_handling("Running, but failed to send update")
+			delete_duplicate("@" + user + " Zchryrr is currently online!")
+			get_status(self, user)
 
 	def check_dms(self):
 		print "Checking DMs"
@@ -44,7 +64,7 @@ class Zchryrr:
 				parse_objects_dm(message)
 				self.api.destroy_direct_message(message.id)
 		else:
-			print "I aint got no messages!"
+			print "No messages"
 	
 		threading.Timer(60, self.check_dms).start()	
 
@@ -68,7 +88,11 @@ class Zchryrr:
 		if(self.auth):
 			p.push("Zchryrr Ping", "", "Zchryrr was requested to ping you","","","")		
 		else:
-			print "Not authorized."
+			try:
+				zchryrr.api.update_status(invalid_sudoer_message)
+			except:
+				zchryrr.delete_duplicate(invalid_sudoer_message)
+				zchryrr.api.update_status(invalid_sudoer_message)
 			
 	def follow_back(self):
 		try:
@@ -103,6 +127,29 @@ class Zchryrr:
 				pass
 		pass
 		threading.Timer(3600, self.follow_back).start()
+
+class StreamListener(tweepy.StreamListener):
+    def on_status(self, status):
+        try:
+            #print '\n %s  %s  via %s\n' % (status.author.screen_name, status.created_at, status.source)
+            #print status.text
+            parse_objects(status)
+        except:
+            # Catch any unicode errors while printing to console
+            # and just ignore them to avoid breaking application.
+            pass
+
+    def on_error(self, status_code):
+        print 'An error has occured! Status code = %s' % status_code
+       	p.push("@Zchryrr", "Error", "An error has occured! Status code = %s." % status_code + " Godspeed.","","","")		
+        return True  # keep stream alive
+        
+	def on_limit(self, track):
+		p.push("@Zchryrr", "Limit Notice", "Limit Notice has arrived! Ahhhh!","","","")		
+		return
+    def on_timeout(self):
+    	p.push("@Zchryrr", "Timeout", "@Zchryrr has timed out. Serious issue...","","","")		
+        print 'Snoozing Zzzzzz'
 
 zchryrr = Zchryrr()
 
@@ -144,26 +191,7 @@ def check_command(hashtag, split_command_array, original_object):
 		zchryrr.send_prowl_ping()
 	
 	if hashtag == "#TOR":
-		try:
-			response = urllib2.urlopen(split_command_array[2]) # Some shortened url
-		except:
-			response = urllib2.urlopen(split_command_array[1]) # Some shortened url
-		url_destination = response.url
-		try:
-			os.system("cd " + torrent_directory + " && wget " + url_destination)
-			if split_command_array[1] == hashtag and original_object.author.screen_name in sudoers:
-				try:
-					error_handling(split_command_array[0] + " Mischief Manged >:3")
-				except:
-					error_handling("Running torrent but failed to update status")
-			else:
-				try:
-					zchryrr.api.update_status(invalid_sudoer_message)
-				except:
-					zchryrr.delete_duplicate(invalid_sudoer_message)
-					zchryrr.api.update_status(invalid_sudoer_message)
-		except:
-			error_handling("Torrenting " + url_destination + " failed")
+		zchryrr.tor(split_command_array[2], split_command_array[0]) 
 			
 	if hashtag == "#STATUS":
 		zchryrr.get_status(original_object.author.screen_name)
@@ -179,29 +207,6 @@ def check_command(hashtag, split_command_array, original_object):
 			zchryrr.mustache(split_command_array[2], original_object.author.screen_name)
 		except:
 			error_handling("Could not mustache")
-
-class StreamListener(tweepy.StreamListener):
-    def on_status(self, status):
-        try:
-            #print '\n %s  %s  via %s\n' % (status.author.screen_name, status.created_at, status.source)
-            #print status.text
-            parse_objects(status)
-        except:
-            # Catch any unicode errors while printing to console
-            # and just ignore them to avoid breaking application.
-            pass
-
-    def on_error(self, status_code):
-        print 'An error has occured! Status code = %s' % status_code
-       	p.push("@Zchryrr", "Error", "An error has occured! Status code = %s." % status_code + " Godspeed.","","","")		
-        return True  # keep stream alive
-        
-	def on_limit(self, track):
-		p.push("@Zchryrr", "Limit Notice", "Limit Notice has arrived! Ahhhh!","","","")		
-		return
-    def on_timeout(self):
-    	p.push("@Zchryrr", "Timeout", "@Zchryrr has timed out. Serious issue...","","","")		
-        print 'Snoozing Zzzzzz'
 
 def main():
 	zchryrr.auth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
