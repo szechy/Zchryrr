@@ -22,25 +22,25 @@ To actually use Zchryrr, you'll need to have your own Twitter account (unless yo
 
 Next, head over to [dev.twitter.com](http://www.dev.twitter.com/) and sign in to your new Twitter account. Under the drop down of your name, click "My applications"
 
-![Drop Down Menu](http://zcry.me/5ut2)
+![Drop Down Menu](http://zachorr.com/zchryrrpics/0.png)
 
 Assuming you don't have any other applications yet, click the "Create a new application" button
 
-![Who can blame me? Vowels ARE pretty lame](http://zcry.me/wSZ4)
+![Who can blame me? Vowels ARE pretty lame](http://zachorr.com/zchryrrpics/1.png)
 
 I'm gonna leave you with the picture below for how to set up the application. It's pretty simple.
 
-![Easy enough?](http://zcry.me/GtBU)
+![Easy enough?](hhttp://zachorr.com/zchryrrpics/2.png)
 
 Don't forget to agree to the ToS and enter the CAPTCHAs at the bottom. 
 
 On the page you get directed to, you'll need to click the "Create my access token" button to get the information you need. The rest of the information you might need is included on that page.
 
-![I know what you're thinking, you sneaky snake. But that application is no longer valid.](http://zcry.me/kWs2)
+![I know what you're thinking, you sneaky snake. But that application is no longer valid.](http://zachorr.com/zchryrrpics/3.png)
 
 Then go to the "Settings" tab and change your "Application Type" to "Read, Write, and Access direct messages"
 
-![Don't worry. Zchryrr won't go all HAL 9000 on you. You can trust him to access your DMs](http://zcry.me/IvCZ)
+![Don't worry. Zchryrr won't go all HAL 9000 on you. You can trust him to access your DMs](http://zachorr.com/zchryrrpics/4.png)
 
 Now that we have that all set up, let's start with the actual code. To run your own Zchryrr on your local server, you'll need to first install Tweepy (the Python Twitter library I use)
 
