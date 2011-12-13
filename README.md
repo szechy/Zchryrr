@@ -46,7 +46,7 @@ After filling in all of that information, you should be set to go. CD to your di
 
 And if you'd like him to run in the background, run
 
-	python zchryrr.py
+	python zchryrr.py &
 
 Taking Advantage of @Zchryrr
 --------------------------------
