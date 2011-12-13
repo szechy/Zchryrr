@@ -38,6 +38,8 @@ class Zchryrr:
 			if(original_object.author.screen_name in sudoers):
 				try:
 					error_handling("@" + user + " Mischief Manged >:3")
+				except:
+					pass
 			else:
 				try:
 					zchryrr.api.update_status(invalid_sudoer_message)
