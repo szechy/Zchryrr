@@ -62,6 +62,8 @@ Upcoming Features List
 
 * Select memes will be able to be generated on the fly. To start, it'll just be some of my favorites.
 
+* Chuck Testa mode - Will reply "Nope. Chuck Testa" to all questions when he is mentioned
+
 How To Contribuite
 --------------------------------
 
