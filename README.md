@@ -30,7 +30,7 @@ Assuming you don't have any other applications yet, click the "Create a new appl
 
 I'm gonna leave you with the picture below for how to set up the application. It's pretty simple.
 
-![Easy enough?](hhttp://zachorr.com/zchryrrpics/2.png)
+![Easy enough?](http://zachorr.com/zchryrrpics/2.png)
 
 Don't forget to agree to the ToS and enter the CAPTCHAs at the bottom. 
 
