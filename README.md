@@ -5,15 +5,15 @@ Zchryrr (interchangeable with @Zchryrr) is a Twitter bot made up in Python to do
 
 * "@Zchryrr /#TOR [link.torrent]" - Begin torrents from a URL via a reply (only from users in the sudoers_list). You know… for your favorite Linux distros
 
-* "@Zchryrr /#STATCHE [image.jpg]" - Serve up mustached images!
+* "@Zchryrr \#STATCHE [image.jpg]" - Serve up mustached images!
 
-* "@Zchryrr /#STATUS" - Return the status of @Zchryrr (If he's running - if he's not running he won't return anything)
+* "@Zchryrr \#STATUS" - Return the status of @Zchryrr (If he's running - if he's not running he won't return anything)
 
-* "@Zchryrr /#PING" - Send a Prowl ping to my phone (used for debugging purposes)
+* "@Zchryrr \#PING" - Send a Prowl ping to my phone (used for debugging purposes)
 
-* "@Zchryrr /#SHUTDOWN" - Shutdown Zchryrr (only useable by people in suoders_list)
+* "@Zchryrr \#SHUTDOWN" - Shutdown Zchryrr (only useable by people in suoders_list)
 
-* "@Zchryrr /#FOLLOW [username]" - Follow users by request (needs authorization)
+* "@Zchryrr \#FOLLOW [username]" - Follow users by request (needs authorization)
 
 How Can I Use Zchryrr?
 --------------------------------
