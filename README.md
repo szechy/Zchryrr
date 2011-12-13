@@ -3,17 +3,17 @@
 
 Zchryrr (interchangeable with @Zchryrr) is a Twitter bot made up in Python to do simple tasks. Currently, the tasks include:
 
-* Begin torrents from a URL via a reply (only from users in the authorized_torrenters list)
+* "@Zchryrr /#TOR [link.torrent]" - Begin torrents from a URL via a reply (only from users in the sudoers_list). You know… for your favorite Linux distros
 
-* Serve up mustached images!
+* "@Zchryrr /#STATCHE [image.jpg]" - Serve up mustached images!
 
-* Send a Prowl ping to my phone (used for debugging purposes)
+* "@Zchryrr /#STATUS" - Return the status of @Zchryrr (If he's running - if he's not running he won't return anything)
 
-* Return the status of @Zchryrr (If he's running - if he's not running he won't return anything)
+* "@Zchryrr /#PING" - Send a Prowl ping to my phone (used for debugging purposes)
 
-* Shutdown Zchryrr (only useable by myself - any additions to usernames will be changed)
+* "@Zchryrr /#SHUTDOWN" - Shutdown Zchryrr (only useable by people in suoders_list)
 
-* Follow users by request (needs authorization)
+* "@Zchryrr /#FOLLOW [username]" - Follow users by request (needs authorization)
 
 How Can I Use Zchryrr?
 --------------------------------
@@ -72,12 +72,19 @@ And if you'd like him to run in the background, run
 
 	python zchryrr.py
 
-Taking Advantage of @Zchryrr
+Taking Advantage of Zchryrr
 --------------------------------
 
-[Images and documentation to come soon of how to access some of the commands for Zchryrr]
+Using Zchryrr is relatively simple. As you might excpect, you send a reply to @Zchryrr with a vaild hashtag (you can find the complete list of commands in the Python script or above)
 
-And my implementation of this script, the real Zchryrr, is always running over at [twitter.com/Zchryrr](http://www.twitter.com/Zchryrr). Feel free to use him all you'd like!
+![Because staches make everything cooler](http://zachorr.com/zchryrrpics/5.png)
+
+And as you might expect, he replies to you at ridicioulsy fast speeds
+
+![Look at him go! He's a tweeting fool!](http://zachorr.com/zchryrrpics/6.png)
+
+
+And my implementation of this script, the real Zchryrr, is always running over at [twitter.com/Zchryrr](http://www.twitter.com/Zchryrr). Feel free to use him all you'd like! If you break him, I should be notified.
 
 Upcoming Features List
 --------------------------------
