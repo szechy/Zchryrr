@@ -58,7 +58,7 @@ And my implementation of this script, the real Zchryrr, is always running over a
 Upcoming Features List
 --------------------------------
 
-* #CuteCatMeBro - Serves up random cute cat images from Tumblr. Because who couldn't use more cute cats?
+* \#CuteCatMeBro - Serves up random cute cat images from Tumblr. Because who couldn't use more cute cats?
 
 * Select memes will be able to be generated on the fly. To start, it'll just be some of my favorites.
 
